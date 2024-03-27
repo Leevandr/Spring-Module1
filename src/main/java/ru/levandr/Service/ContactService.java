@@ -66,7 +66,7 @@ public class ContactService {
             }
         }
 
-        contactList.add(new Contact(email, fullName, phoneNumber));
+        contactList.add(new Contact(fullName,phoneNumber,email));
     }
 
     public void deleteContact(String email) {

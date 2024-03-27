@@ -12,11 +12,9 @@ public class Main {
         context.getBean(ContactService.class).addContact("Lev", "8999234123", "leva@example.com");
         context.getBean(ContactService.class).addContact("Lev1", "89992341", "leva1@example.com");
         context.getBean(ContactService.class).addContact("Lev2", "899923413", "leva2@example.com");
-        context.getBean(ContactService.class).addContact("Lev2", "899923413", "leva2@example.com");
-        context.getBean(ContactService.class).addContact("Levdelete", "9999999", "levdelete@example.com");
-        context.getBean(ContactService.class).deleteContact("levdelete@example.com");
-
         context.getBean(ContactService.class).saveContacts();
+
+        context.getBean(ContactService.class).printContacts();
 
     }
 }
