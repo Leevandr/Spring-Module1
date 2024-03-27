@@ -2,11 +2,11 @@ package ru.levandr.Entity;
 
 public class Contact {
 
-    private String fullName;
+    private final String fullName;
 
-    private String phoneNumber;
+    private final String phoneNumber;
 
-    private String email;
+    private final String email;
 
     public Contact(String email, String fio, String phoneNumber) {
         this.fullName = fio;

@@ -33,7 +33,11 @@ public class ContactService {
         try (Stream<String> stream = Files.lines(Paths.get(filePath + fileName))) {
             stream.forEach(line -> {
                 String[] parts = line.split(";");
-                contactList.add(new Contact(parts[0], parts[1], parts[2]));
+                if (parts.length < 3) {
+                    System.out.println("Пропущена строка, тк ввод неверный: " + line);
+                } else {
+                    contactList.add(new Contact(parts[0], parts[1], parts[2]));
+                }
             });
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,6 +45,11 @@ public class ContactService {
     }
 
     public void addContact(String fullName, String phoneNumber, String email) {
+
+        if (!phoneNumber.matches("\\d+") || !email.contains("@")) {
+            System.out.println("Неверный формат ввода. Пожалуйста, введите данные снова.");
+            return;
+        }
 
         for (Contact contact : contactList) {
             if (contact.getFullName().equals(fullName)) {
